@@ -8,7 +8,6 @@
 
 namespace Framework\Flash;
 
-
 class Flash
 {
     // Message types and shortcuts
@@ -51,12 +50,12 @@ class Flash
 
     // CSS Classes
     protected $stickyCssClass = 'sticky';
-    protected $msgCssClass = 'alert dismissable';
+    protected $msgCssClass = 'callout dismissable';
     protected $cssClassMap = [
-        self::INFO    => 'alert-info',
-        self::SUCCESS => 'alert-success',
-        self::WARNING => 'alert-warning',
-        self::ERROR   => 'alert-danger',
+        self::INFO    => 'callout-info',
+        self::SUCCESS => 'callout-success',
+        self::WARNING => 'callout-warning',
+        self::ERROR   => 'callout-danger',
     ];
 
     // Where to redirect the user after a message is queued
@@ -81,7 +80,11 @@ class Flash
      */
     public function __construct()
     {
-        session_start();
+        $status = session_status();
+        if($status == PHP_SESSION_NONE){
+            //There is no active session
+            session_start();
+        }
         // Generate a unique ID for this user and session
         $this->msgId = sha1(uniqid());
 
