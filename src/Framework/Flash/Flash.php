@@ -50,12 +50,12 @@ class Flash
 
     // CSS Classes
     protected $stickyCssClass = 'sticky';
-    protected $msgCssClass = 'callout dismissable';
+    protected $msgCssClass = 'alert';
     protected $cssClassMap = [
-        self::INFO    => 'callout-info',
-        self::SUCCESS => 'callout-success',
-        self::WARNING => 'callout-warning',
-        self::ERROR   => 'callout-danger',
+        self::INFO    => 'alert-info',
+        self::SUCCESS => 'alert-success',
+        self::WARNING => 'alert-warning',
+        self::ERROR   => 'alert-danger',
     ];
 
     // Where to redirect the user after a message is queued
